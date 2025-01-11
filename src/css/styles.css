@@ -1,0 +1,267 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  width: 100%;
+  height: 100%;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.header-logo {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to right, #007bff, #0056b3);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Login Container */
+.login-container,
+.todo-container,
+.complete-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Login Form */
+.login-form h1,
+.signup-form h1,
+.todo-container h1,
+.complete-container h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.button-group .btn {
+  flex: 1;
+}
+
+.btn {
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn.block {
+  width: 100%;
+}
+
+.btn.primary {
+  background-color: #007bff;
+}
+
+.btn.primary:hover {
+  background-color: #0056b3;
+}
+
+.btn.primary:active {
+  background-color: #003d80;
+}
+
+.btn.success {
+  background-color: #28a745;
+}
+
+.btn.success:hover {
+  background-color: #218838;
+}
+
+.btn.success:active {
+  background-color: #1e7e34;
+}
+
+.btn.cancel {
+  background-color: #999;
+}
+
+.btn.cancel:hover {
+  background-color: #777;
+}
+
+.btn.cancel:active {
+  background-color: #555;
+}
+
+.btn.warning {
+  background-color: #ff9800;
+}
+
+.btn.warning:hover {
+  background-color: #e68a00;
+}
+
+.btn.warning:active {
+  background-color: #b36a00;
+}
+
+.btn.delete {
+  background-color: #e74c3c;
+}
+
+.btn.delete:hover {
+  background-color: #c0392b;
+}
+
+.btn.delete:active {
+  background-color: #992d22;
+}
+
+/* TODO List Styling */
+.todo-input {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.todo-list,
+.complete-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li,
+.complete-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.todo-list li .btn,
+.complete-list li .btn {
+  min-width: 50px;
+  padding: 5px 10px;
+}
+
+.todo-list .empty,
+.complete-list .empty {
+  justify-content: center;
+  color: #999;
+  font-weight: bold;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-btn:hover {
+  color: #000;
+}
