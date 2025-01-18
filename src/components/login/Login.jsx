@@ -1,14 +1,12 @@
 import { useState } from 'react';
 
-const Login = (props) => {
-  console.log('props', props);
-
-  const [email, setEmail] = useState(props.email);
-  const [password, setPassword] = useState(props.password);
+const Login = ({ initialEmail, initialPassword, onLogin }) => {
+  const [email, setEmail] = useState(initialEmail);
+  const [password, setPassword] = useState(initialPassword);
 
   const submit = () => {
-    const userInfo = { email: email, password: password };
-    props.onLogin(userInfo);
+    const userInfo = { email, password };
+    onLogin(userInfo);
   };
 
   const handleChange = (event) => {
@@ -24,7 +22,7 @@ const Login = (props) => {
   return (
     <div className="login-container">
       <div className="login-form" action="todo.html" method="GET">
-        <h1>로그인 222</h1>
+        <h1>로그인</h1>
         <div className="input-group">
           <label htmlFor="email">이메일</label>
           <input
