@@ -1,21 +1,14 @@
 import { useState } from 'react';
 
-const userId = 'robin';
-const userPw = '1234';
+const Login = (props) => {
+  console.log('props', props);
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(props.email);
+  const [password, setPassword] = useState(props.password);
 
   const submit = () => {
-    console.log('email', email);
-    console.log('password', password);
-
-    if (email === userId && userPw === password) {
-      return alert('로그인 성공!');
-    } else {
-      return alert('아이디와 비밀번호를 확인해주세요.');
-    }
+    const userInfo = { email: email, password: password };
+    props.onLogin(userInfo);
   };
 
   const handleChange = (event) => {
