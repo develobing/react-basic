@@ -1,8 +1,11 @@
 import { useState } from 'react';
 
-const Login = ({ initialEmail, initialPassword, onLogin }) => {
-  const [email, setEmail] = useState(initialEmail);
-  const [password, setPassword] = useState(initialPassword);
+const Login = ({ initialEmail = '', initialPassword = '', onLogin }) => {
+  const [formData, setFormData] = useState({
+    email: initialEmail,
+    password: initialPassword,
+  });
+  const { email, password } = formData;
 
   const submit = () => {
     const userInfo = { email, password };
@@ -10,13 +13,13 @@ const Login = ({ initialEmail, initialPassword, onLogin }) => {
   };
 
   const handleChange = (event) => {
-    const input = event.target;
-    setEmail(input.value);
-  };
+    const { name, value } = event.target;
 
-  const handleChangePassword = (event) => {
-    const input = event.target;
-    setPassword(input.value);
+    const newFormData = {
+      ...formData,
+      [name]: value,
+    };
+    setFormData(newFormData);
   };
 
   return (
@@ -29,12 +32,13 @@ const Login = ({ initialEmail, initialPassword, onLogin }) => {
             type="text"
             id="email"
             name="email"
-            maxLength="10"
+            maxLength="20"
             required
             value={email}
             onChange={handleChange}
           />
         </div>
+
         <div className="input-group">
           <label htmlFor="password">비밀번호</label>
           <input
@@ -44,7 +48,7 @@ const Login = ({ initialEmail, initialPassword, onLogin }) => {
             maxLength="10"
             required
             value={password}
-            onChange={handleChangePassword}
+            onChange={handleChange}
           />
         </div>
 

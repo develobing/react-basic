@@ -1,10 +1,10 @@
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
 
-const Todo = () => {
+const Todo = ({ userInfo }) => {
   return (
     <>
-      <TodoHeader />
+      <TodoHeader userName={userInfo.name} />
       <TodoList />
     </>
   );

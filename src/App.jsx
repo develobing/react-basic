@@ -1,21 +1,28 @@
 import { useState } from 'react';
 import Login from './components/login/Login';
 import Todo from './components/todo/Todo';
+import { useDispatch, useSelector } from 'react-redux';
 
-const userId = 'sally';
-const userPw = '5555';
+const correctUserInfo = {
+  email: 'robin@google.com',
+  password: '1234',
+  name: '로빈',
+};
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const user1 = 'robin';
+  const dispatch = useDispatch();
+  const userInfo = useSelector((store) => store.userInfo);
+  const isLoggedIn = userInfo !== null;
 
   const onLogin = (userInfo) => {
-    console.log('userInfo', userInfo);
     const { email, password } = userInfo;
 
-    if (email === userId && password === userPw) {
+    if (
+      email === correctUserInfo.email &&
+      password === correctUserInfo.password
+    ) {
       alert('로그인에 성공하셨습니다.');
-      setIsLoggedIn(true);
+      dispatch({ type: 'LOGIN', payload: correctUserInfo });
     } else {
       alert('아이디와 비밀번호를 확인해주세요.');
     }
@@ -23,11 +30,7 @@ const App = () => {
 
   return (
     <>
-      {isLoggedIn ? (
-        <Todo />
-      ) : (
-        <Login initialEmail={user1} initialPassword="1234" onLogin={onLogin} />
-      )}
+      {isLoggedIn ? <Todo userInfo={userInfo} /> : <Login onLogin={onLogin} />}
     </>
   );
 };
