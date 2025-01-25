@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import Login from './components/login/Login';
 import Todo from './components/todo/Todo';
 import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 const correctUserInfo = {
   email: 'robin@google.com',
@@ -11,6 +11,8 @@ const correctUserInfo = {
 
 const App = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const userInfo = useSelector((store) => store.userInfo);
   const isLoggedIn = userInfo !== null;
 
@@ -23,15 +25,19 @@ const App = () => {
     ) {
       alert('로그인에 성공하셨습니다.');
       dispatch({ type: 'LOGIN', payload: correctUserInfo });
+      navigate('/todo');
     } else {
       alert('아이디와 비밀번호를 확인해주세요.');
     }
   };
 
   return (
-    <>
-      {isLoggedIn ? <Todo userInfo={userInfo} /> : <Login onLogin={onLogin} />}
-    </>
+    <Routes>
+      <Route path="/" element={<h2>루트 라우트</h2>}></Route>
+      <Route path="/login" element={<Login onLogin={onLogin} />}></Route>
+      <Route path="/todo" element={<Todo userInfo={userInfo} />}></Route>
+      <Route path="*" element={<h2>404 - 없는 페이지 입니다.</h2>}></Route>
+    </Routes>
   );
 };
 
