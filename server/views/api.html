@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Basic TODO - API</title>
+  </head>
+  <body>
+    <div class="container" style="padding: 0 10px">
+      <h1>React Basic TODO - API 목록</h1>
+
+      <div class="section">
+        <h2>인증</h2>
+        <ul>
+          <li>로그인: [POST] <a href="/api/auth/login">/api/auth/login</a></li>
+          <li>
+            회원가입: [POST] <a href="/api/auth/register">/api/auth/register</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>유저</h2>
+        <ul>
+          <li>유저 목록: [GET] <a href="/api/users">/api/users</a></li>
+          <li>
+            유저 상세: [GET] <a href="/api/users/:userId">/api/users/:userId</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>할일</h2>
+        <ul>
+          <li>할일 목록: [GET] <a href="/api/todos">/api/todos</a></li>
+          <li>
+            할일 상세: [GET] <a href="/api/todos/:todoId">/api/todos/:todoId</a>
+          </li>
+          <li>할일 작성: [POST] <a href="/api/todos">/api/todos</a></li>
+          <li>
+            할일 수정: [PUT] <a href="/api/todos/:todoId">/api/todos/:todoId</a>
+          </li>
+          <li>
+            할일 삭제: [DELETE]
+            <a href="/api/todos/:todoId">/api/todos/:todoId</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

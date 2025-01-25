@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="login-container">
+        <div class="login-form">
+          <h1>로그인</h1>
+          <div class="input-group">
+            <label for="email">이메일</label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              maxlength="10"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="password">비밀번호</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              maxlength="10"
+              required
+            />
+          </div>
+
+          <div class="button-group">
+            <button type="submit" class="btn primary">로그인</button>
+            <button type="submit" class="btn success">회원가입</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO List</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <header class="header">
+        <div class="header-left">
+          <span class="header-logo">오늘 할 일</span>
+        </div>
+
+        <div class="header-right">
+          <button class="btn primary">로그아웃</button>
+        </div>
+      </header>
+
+      <section class="container">
+        <div class="todo-container">
+          <h1>오늘 할 일</h1>
+
+          <main>
+            <div class="todo-input">
+              <input
+                type="text"
+                class="new-task"
+                placeholder="할 일을 입력하세요"
+              />
+              <button class="btn primary" onclick="handleAddTask()">
+                추가하기
+              </button>
+            </div>
+
+            <ul class="todo-list">
+              <li>
+                <span>React 공부하기</span>
+                <div class="button-group">
+                  <button class="btn success" onclick="completeTask(this)">
+                    완료
+                  </button>
+                  <button class="btn delete" onclick="deleteTask(this)">
+                    삭제
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </main>
+        </div>
+
+        <div class="complete-container">
+          <h2>완료한 일</h2>
+          <ul class="complete-list">
+            <li>
+              <span class="strike">HTML 공부하기</span>
+              <div class="button-group">
+                <button class="btn warning" onclick="cancelComplete(this)">
+                  취소
+                </button>
+              </div>
+            </li>
+
+            <li>
+              <span class="strike">CSS 공부하기</span>
+              <div class="button-group">
+                <button class="btn warning" onclick="cancelComplete(this)">
+                  취소
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function handleAddTask() {
+        const taskInput = document.querySelector('.new-task');
+        const taskText = taskInput.value.trim();
+        if (taskText === '') return;
+
+        addTask(taskText);
+        taskInput.value = '';
+      }
+
+      function addTask(text) {
+        const taskList = document.querySelector('.todo-list');
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${text}</span>
+          <div class="button-group">
+            <button class="btn success" onclick="completeTask(this)">완료</button>
+            <button class="btn delete" onclick="deleteTask(this)">삭제</button>
+          </div>
+        `;
+        taskList.appendChild(li);
+      }
+
+      function deleteTask(button) {
+        const task = button.parentElement.parentElement;
+        task.remove();
+      }
+
+      function completeTask(button) {
+        const task = button.parentElement.parentElement;
+        const text = task.querySelector('span').textContent;
+        addCompleteTask(text);
+        deleteTask(button);
+      }
+
+      function addCompleteTask(text) {
+        const completeList = document.querySelector('.complete-list');
+
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span class="strike">${text}</span>
+          <div class="button-group">
+            <button class="btn warning" onclick="cancelComplete(this)">
+              취소
+            </button>
+          </div>
+        `;
+        completeList.appendChild(li);
+      }
+
+      function cancelComplete(button) {
+        const task = button.parentElement.parentElement;
+        const text = task.querySelector('span').textContent;
+        addTask(text);
+        task.remove();
+      }
+    </script>
+  </body>
+</html>

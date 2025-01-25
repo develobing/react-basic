@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React 기초 스터디</title>
+
+    <style>
+      /* Reset Styles */
+      body,
+      h1,
+      p,
+      ul,
+      li,
+      a {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        color: inherit;
+        font-family: Arial, sans-serif;
+      }
+
+      /* General Body Styling */
+      body {
+        background-color: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      /* Container */
+      .container {
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 600px;
+        text-align: center;
+        padding: 20px;
+      }
+
+      /* Header */
+      header {
+        margin-bottom: 20px;
+      }
+
+      header h1 {
+        font-size: 1.8em;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      /* Work List */
+      .work-list {
+        margin: 0;
+        padding: 0;
+      }
+
+      .work-list li {
+        margin: 10px 0;
+      }
+
+      .work-list a {
+        display: block;
+        padding: 10px;
+        background: #007bff;
+        color: #fff;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      .work-list a:hover {
+        background: #0056b3;
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 20px;
+      }
+
+      footer p {
+        font-size: 0.9em;
+        color: #777;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>React 기초 스터디 - TODO LIST</h1>
+      </header>
+
+      <main>
+        <ul class="work-list">
+          <li><a href="pages/login.html" target="_blank">로그인</a></li>
+          <li><a href="pages/sign_up.html" target="_blank">회원가입</a></li>
+          <li><a href="pages/todo.html" target="_blank">TODO List</a></li>
+          <li>
+            <a href="pages/todo_empty.html" target="_blank">TODO List Empty</a>
+          </li>
+        </ul>
+      </main>
+
+      <footer>
+        <p>&copy; 2024 React 기초 스터디</p>
+      </footer>
+    </div>
+  </body>
+</html>

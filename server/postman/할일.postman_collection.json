@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "aa02be58-07d8-40ab-ac2c-4d3bab107c8f",
+		"name": "할일",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8012829"
+	},
+	"item": [
+		{
+			"name": "할일 목록 조회",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_HOST}}/api/todos",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"api",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "할일 상세 조회",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_HOST}}/api/todos/todo1",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"api",
+						"todos",
+						"todo1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "할일 등록",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"Javascript 공부하기\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_HOST}}/api/todos",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"api",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "할일 수정",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"todo1\",\n    \"content\": \"할일 수정 테스트 - 완료\",\n    \"isDone\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_HOST}}/api/todos/todo1",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"api",
+						"todos",
+						"todo1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "할일 삭제",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_HOST}}/api/todos/todo1",
+					"host": [
+						"{{API_HOST}}"
+					],
+					"path": [
+						"api",
+						"todos",
+						"todo1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

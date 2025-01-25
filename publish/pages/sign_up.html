@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+
+  <body>
+    <div id="root">
+      <!-- Modal -->
+      <div class="modal show" id="signup-modal">
+        <div class="modal-content">
+          <span class="close-btn" onclick="closeModal()">&times;</span>
+          <div class="signup-form">
+            <h1>회원가입</h1>
+
+            <div class="input-group">
+              <label for="modal-email">이메일</label>
+              <input
+                type="email"
+                id="modal-email"
+                name="email"
+                maxlength="10"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="modal-password">비밀번호</label>
+              <input
+                type="password"
+                id="modal-password"
+                name="password"
+                maxlength="10"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="modal-password">비밀번호 확인</label>
+              <input
+                type="password"
+                id="modal-password"
+                name="password"
+                maxlength="10"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="modal-nickname">별명</label>
+              <input
+                type="text"
+                id="modal-nickname"
+                name="nickname"
+                maxlength="10"
+                required
+              />
+            </div>
+
+            <div class="button-group">
+              <button type="submit" class="btn primary">회원가입</button>
+              <button type="submit" class="btn cancel">취소</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
