@@ -1,12 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const TodoHeader = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const state = useSelector((store) => store);
   const userInfo = state.userInfo;
 
   const logout = () => {
+    localStorage.removeItem('token');
     dispatch({ type: 'LOGOUT' });
+    navigate('/login');
   };
 
   return (

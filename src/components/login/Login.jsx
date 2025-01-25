@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useState } from 'react';
 
 const Login = ({ initialEmail = '', initialPassword = '', onLogin }) => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,26 @@ const Login = ({ initialEmail = '', initialPassword = '', onLogin }) => {
       [name]: value,
     };
     setFormData(newFormData);
+  };
+
+  // API 테스트 함수
+  const fetchUsers = () => {
+    const apiHost = 'http://localhost:5555';
+
+    // 유저 정보 불러오기
+    axios.get(apiHost + '/api/users').then((response) => {
+      console.log('response', response);
+    });
+
+    // 로그인 API 테스트
+    axios
+      .post(`${apiHost}/api/auth/login`, {
+        email: 'user1@google.com',
+        password: 'user1',
+      })
+      .then((response) => {
+        console.log('로그인 정보 - response', response);
+      });
   };
 
   return (
@@ -58,6 +79,9 @@ const Login = ({ initialEmail = '', initialPassword = '', onLogin }) => {
           </button>
           <button type="submit" className="btn success">
             회원가입
+          </button>
+          <button type="submit" className="btn warning" onClick={fetchUsers}>
+            테스트
           </button>
         </div>
       </div>

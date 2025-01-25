@@ -1,4 +1,8 @@
+import { useSelector } from 'react-redux';
+
 const TodoList = () => {
+  const todos = useSelector((state) => state.todos);
+
   return (
     <section className="container">
       <div className="todo-container">
@@ -17,17 +21,19 @@ const TodoList = () => {
           </div>
 
           <ul className="todo-list">
-            <li>
-              <span>React 공부하기</span>
-              <div className="button-group">
-                <button className="btn success" onclick="completeTask(this)">
-                  완료
-                </button>
-                <button className="btn delete" onclick="deleteTask(this)">
-                  삭제
-                </button>
-              </div>
-            </li>
+            {todos.map((todo, index) => (
+              <li key={index}>
+                <span>{todo.content}</span>
+                <div className="button-group">
+                  <button className="btn success" onclick="completeTask(this)">
+                    완료
+                  </button>
+                  <button className="btn delete" onclick="deleteTask(this)">
+                    삭제
+                  </button>
+                </div>
+              </li>
+            ))}
           </ul>
         </main>
       </div>
